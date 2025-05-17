@@ -1,1 +1,2 @@
-# Group6
+To push the code check How_to_push_code.docx
+
