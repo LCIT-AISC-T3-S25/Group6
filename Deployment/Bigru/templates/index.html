@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BiGRU Sentiment Classifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>BiGRU Sentiment Classifier</h1>
+
+    <div class="section">
+      <form method="POST" action="/predict">
+        <textarea name="input_text" rows="4" placeholder="Type your sentence here..." required></textarea>
+        <button type="submit">Predict Sentiment</button>
+      </form>
+
+      {% if predicted_class is not none %}
+      <div class="result-box">
+        <h3>Prediction Result</h3>
+        <p><strong>Input:</strong> {{ input_text }}</p>
+        <p><strong>Class:</strong> {{ predicted_class }}</p>
+        <p><strong>Confidence:</strong> {{ confidence }}%</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
