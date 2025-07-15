@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VGG Image Classifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>VGG Image Classifier</h1>
+
+    <div class="section">
+      <form method="POST" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required />
+        <button type="submit">Predict Image</button>
+      </form>
+
+      {% if predicted_class is not none %}
+      <div class="result-box">
+        <h3>Prediction Result</h3>
+        <p><strong>Class:</strong> {{ predicted_class }}</p>
+        <p><strong>Confidence:</strong> {{ confidence }}%</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
